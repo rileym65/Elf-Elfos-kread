@@ -48,7 +48,7 @@ loop1:     lda     rf                  ; look for first less <= space
            ldn     rf                  ; get byte from argument
            lbnz    good                ; jump if filename given
            sep     scall               ; otherwise display usage message
-           dw      f_inmsg
+           dw      o_inmsg
            db      'Usage: kread filename',10,13,0
            sep     sret                ; and return to os
 
@@ -110,7 +110,7 @@ opened:    push    rd                  ; save file descriptor
            dw      o_write
            lbnf    written             ; jump if write was good
            sep     scall               ; indicate error
-           dw      f_inmsg
+           dw      o_inmsg
            db      'Error writing to file',10,13,0
 written:   pop     rd                  ; recover file descriptor
            sep     scall               ; close file
