@@ -78,7 +78,7 @@ bootrd:    glo     r7                  ; save R7
            sep     scall               ; call bios to read sector
            dw      d_ideread
            irx                         ; recover R7
-           ldxa
+           ldx
            plo     r7
            inc     r7                  ; point to next sector
            glo     r7                  ; get count
